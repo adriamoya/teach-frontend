@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+
 // third-party imports
+import { AccordionModule } from 'ngx-bootstrap';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
@@ -19,6 +21,7 @@ import { ProfileDetailComponent } from './profile-detail/profile-detail.componen
 import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-update.component';
 import { AssignaturesUpdateGeneralComponent } from './assignatures-update/assignatures-update-general.component';
 import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
+import { AlumnesDetailComponent } from './alumnes-detail/alumnes-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
     AssignaturesUpdateComponent,
     AssignaturesUpdateGeneralComponent,
     AlumnesListComponent,
+    AlumnesDetailComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -41,6 +45,7 @@ import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
     HttpModule,
     
 	  // ngx-bootstrap
+    AccordionModule.forRoot(),
     NgbModule.forRoot(),
 	  BsDropdownModule.forRoot(),
     CollapseModule,

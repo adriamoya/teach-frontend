@@ -43,8 +43,8 @@
 			<hr>
 		</div>
 
-		<!-- Tabs -->
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<!-- Pills -->
+		<ul class="nav nav-pills" id="myTab" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link active" id="proves-tab" data-toggle="tab" href="#proves" role="tab" aria-controls="proves" aria-selected="true">Proves</a>
 			</li>
@@ -52,9 +52,11 @@
 				<a class="nav-link" id="alumnes-tab" data-toggle="tab" href="#alumnes" role="tab" aria-controls="alumnes" aria-selected="false">Alumnes</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="avaluacio-tab" data-toggle="tab" href="#avaluacio" role="tab" aria-controls="avaluacio" aria-selected="false">Avaluació</a>
+				<a class="nav-link" id="professors-tab" data-toggle="tab" href="#professors" role="tab" aria-controls="professors" aria-selected="false">Professors</a>
 			</li>
 		</ul>
+		<hr>
+
 		<div style="margin-top: 20px;" class="tab-content" id="myTabContent">
 
 			<!-- Proves - list -->
@@ -104,7 +106,7 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let alumne of assignatura.alumnes">
-								<td><a href="">{{ alumne.nom }} {{ alumne.primer_cognom }} {{ alumne.segon_cognom }}</a></td>
+								<td><a routerLink="/alumnes/{{ alumne.id }}" routerLinkActive="active">{{ alumne.nom }} {{ alumne.primer_cognom }} {{ alumne.segon_cognom }}</a></td>
 								<td *ngFor="let prova_assignatura of proves_assignatura">
 									<div *ngFor="let puntuacio of prova_assignatura.puntuacio_alumnes">
 										<div *ngIf="puntuacio.nom == alumne.nom; then thenBlock else elseBlock">...</div>
@@ -125,9 +127,24 @@
 
 			<!-- Avaluació -->
 
-			<div class="tab-pane fade" id="avaluacio" role="tabpanel" aria-labelledby="avaluacio-tab">
+			<div class="tab-pane fade" id="professors" role="tabpanel" aria-labelledby="professors-tab">
+
+				<section class="row text-center placeholder">
+					<div *ngFor="let professor of assignatura.professor_assignatures" class="col-lg-4">
+
+						<i 
+						class="material-icons"
+						style="font-size: 160px; cursor: pointer; color: #e9ecef;"
+						routerLink="/assignatures/{{ assignatura.id }}" 
+						routerLinkActive="active">
+							lens
+						</i>
+						<h2>{{ professor.nom}} {{ professor.primer_cognom }}</h2>
+
+					</div>
+				</section>
 			
-				<div class="col-sm-12 col-md-6">
+				<!-- <div class="col-sm-12 col-md-6">
 					<div style="display: block;">
 						<canvas *ngIf="ready_chart == true" 
 						baseChart
@@ -143,7 +160,7 @@
 						(chartClick)="chartClicked($event)">
 						</canvas>
 					</div>
-				</div>
+				</div> -->
 
 			</div>
 

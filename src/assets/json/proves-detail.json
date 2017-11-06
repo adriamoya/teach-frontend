@@ -9,7 +9,7 @@
 		},
 		"puntuacio_total": 10,
 		"puntuacio_promig": 7.82,
-		"pes_nota": 0.15,
+		"pes_nota": 0.25,
 		"continguts_avaluats": [
 			"Ecuacions"
 		],
@@ -42,7 +42,7 @@
 		},
 		"puntuacio_total": 10,
 		"puntuacio_promig": 7.06,
-		"pes_nota": 0.15,
+		"pes_nota": 0.25,
 		"continguts_avaluats": [
 			"Ecuacions de segon grau"
 		],
@@ -75,7 +75,7 @@
 		},
 		"puntuacio_total": 10,
 		"puntuacio_promig": 6.29,
-		"pes_nota": 0.30,
+		"pes_nota": 0.50,
 		"continguts_avaluats": [
 			"Ecuacions",
 			"Ecuacions de segon grau",
