@@ -11,7 +11,7 @@ export class AlumnesDetailComponent implements OnInit {
 
 	private routeSub: any;
 	private req: any;
-	alumne: [any];
+	public alumne: any;
 	id: string;
 	ready: boolean = false;
 
