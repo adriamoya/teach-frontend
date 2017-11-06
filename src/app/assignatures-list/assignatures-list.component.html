@@ -1,0 +1,38 @@
+<div class="container">
+
+	<br>
+
+	<nav aria-label="breadcrumb" role="navigation">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a routerLink="/" routerLinkActive="active">Home</a></li>
+			<!-- <li class="breadcrumb-item"><a href="#">Library</a></li> -->
+			<li class="breadcrumb-item active" aria-current="page">Assignatures</li>
+		</ol>
+	</nav>
+
+	<!-- Title -->
+	<div class="mt-3">
+		<h1>{{ title }}</h1>
+		<hr>
+	</div>
+
+	<!-- Assignatura items -->
+	<section class="row text-center placeholder">
+		<div 
+		style="margin-bottom: 25px;" 
+		class="col-xs-6 col-sm-4 col-md-3 placeholder" 
+		*ngFor="let assignatura of assignaturesList">
+			<i 
+			class="material-icons"
+			style="font-size: 160px; cursor: pointer;" 
+			[ngStyle]="{'color': assignatura.color}"
+			routerLink="/assignatures/{{ assignatura.id }}" 
+			routerLinkActive="active">
+				layers
+			</i>
+			<h5 style="margin-top: -10px;" >{{ assignatura.nom }}</h5>
+			<div class="text-muted">{{ assignatura.curs }}</div>
+		</div>
+	</section>
+
+</div>
