@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
 import { AssignaturesService } from '../services/assignatures.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class AssignaturesListComponent implements OnInit {
 	title = "Assignatures";
 	assignaturesList: [any];
 
-	constructor(private _http:Http, private _assignatures:AssignaturesService) { }
+	constructor(private _assignatures:AssignaturesService) { }
 
 	ngOnInit() {
 		this.req = this._assignatures.list().subscribe(data=>{

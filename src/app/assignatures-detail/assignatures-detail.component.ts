@@ -3,10 +3,13 @@ import { ActivatedRoute } from '@angular/router'; // Provider that allows us to 
 import { Http } from '@angular/http';
 import { SlicePipe } from '@angular/common';
 
+import { AssignaturesService } from '../services/assignatures.service';
+
 @Component({
   selector: 'app-assignatures-detail',
   templateUrl: './assignatures-detail.component.html',
-  styleUrls: ['./assignatures-detail.component.css']
+  styleUrls: ['./assignatures-detail.component.css'],
+  providers: [AssignaturesService]
 })
 export class AssignaturesDetailComponent implements OnInit {
 
@@ -15,12 +18,12 @@ export class AssignaturesDetailComponent implements OnInit {
 	// GET PROVES PROMIG BY JOINING alumnes-detail with proves-detail.
 
 	private routeSub: any;
-	// private req: any;
+	private req: any;
 	assignatura: any;
 	proves_assignatura: any;
 	id: string;
 
-	constructor(private route: ActivatedRoute, private _http: Http) { }
+	constructor(private route: ActivatedRoute, private _http: Http, private _assignatures: AssignaturesService) { }
 
 	ngOnInit() {
 
@@ -30,11 +33,9 @@ export class AssignaturesDetailComponent implements OnInit {
 			// console.log(params);
 			this.id = params['id'];
 
-			this._http.get('assets/json/assignatures-detail.json').subscribe(data => {
-				data.json().filter(item => {
-					// console.log(item);
+			this.req = this._assignatures.list().subscribe(data => {
+				data.filter(item => {
 					if (item.id == this.id) {
-						// console.log(item);
 						this.assignatura = item;
 					}
 
@@ -61,6 +62,6 @@ export class AssignaturesDetailComponent implements OnInit {
 	// important to unsubscribe (destroy) after using subscribe ...
 	ngOnDestroy() {
 		this.routeSub.unsubscribe();
-		// this.req.unsubscribe();
+		this.req.unsubscribe();
 	};
 }
