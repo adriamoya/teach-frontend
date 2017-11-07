@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { AssignaturesService } from '../services/assignatures.service';
 
 @Component({
   selector: 'app-assignatures-list',
   templateUrl: './assignatures-list.component.html',
-  styleUrls: ['./assignatures-list.component.css']
+  styleUrls: ['./assignatures-list.component.css'],
+  providers: [AssignaturesService]
 })
 export class AssignaturesListComponent implements OnInit {
 
@@ -12,13 +14,12 @@ export class AssignaturesListComponent implements OnInit {
 	title = "Assignatures";
 	assignaturesList: [any];
 
-	constructor(private _http:Http) { }
+	constructor(private _http:Http, private _assignatures:AssignaturesService) { }
 
 	ngOnInit() {
-		this.req = this._http.get('assets/json/assignatures-list.json').subscribe(data=>{
-			// console.log(data.json());
-			this.assignaturesList = data.json() as [any];
-		})
+		this.req = this._assignatures.list().subscribe(data=>{
+			this.assignaturesList = data as [any];
+		});
 	}
 
 	ngOnDestroy() {
