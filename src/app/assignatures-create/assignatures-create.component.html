@@ -9,30 +9,34 @@
 	</nav>
 
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12">
+		<div class="col-12">
 			<div class="mt-3">
 
 				<!-- Add button -->
-				<button 
-				type="button" 
-				class="btn btn-success float-right"
-				routerLink="/" 
-				routerLinkActive="active">
-				Afegir
-				</button>
 
+				<div class="row">
+					<div class='col-12'>
+						<button 
+						type="button" 
+						class="btn btn-success float-right"
+						routerLink="/" 
+						routerLinkActive="active">
+						Afegir
+						</button>
+					</div>
+				</div>
 				<!-- Nova assignatura -->
-				<div class="mt-3">
+				<!-- <div class="mt-3">
 					<h2>General</h2>
 					<hr>
-				</div>
+				</div> -->
 
 				<dl class="form-group">
 					<dt>
 						<label class="form-label" for="nom-assignatura">Nom assignatura</label>
 					</dt>
 					<dd>
-						<input type="text" class="form-control" id="nom-assignatura" value="{{ assignatura.nom }}">
+						<input type="text" class="form-control" id="nom-assignatura">
 					</dd>
 				</dl>
 				<dl class="form-group">
@@ -50,9 +54,7 @@
 						<label class="form-label" for="bio-assignatura">Bio</label>
 					</dt>
 					<dd>
-						<textarea class="form-control" id="bio-assignatura" rows="3">
-							{{ assignatura.bio }}
-						</textarea>
+						<textarea class="form-control" id="bio-assignatura" rows="3"></textarea>
 					</dd>
 				</dl>
 				<!-- <br> -->
