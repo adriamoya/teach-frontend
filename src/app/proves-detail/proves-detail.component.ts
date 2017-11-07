@@ -2,59 +2,40 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Provider that allows us to work and get parameters from the route given
 import { Http } from '@angular/http';
 
+import { ProvesService } from '../services/proves.service';
+
 @Component({
   selector: 'app-proves-detail',
   templateUrl: './proves-detail.component.html',
-  styleUrls: ['./proves-detail.component.css']
+  styleUrls: ['./proves-detail.component.css'],
+  providers: [ProvesService]
 })
 export class ProvesDetailComponent implements OnInit {
 
 	private routeSub: any;
-	// private queryParamsSub: any;
-	private url: any;
+	private req: any;
 	prova: any;
 	id: string;
-	// assignatura: string;
-	// assignatura_url: any;
 
-
-	constructor(private route: ActivatedRoute, private _http: Http) { }
+	constructor(private route: ActivatedRoute, private _proves: ProvesService) { }
 
 	ngOnInit() {
 
-		// this.assignatura = '';
-
-		// this.queryParamsSub = this.route.queryParams.subscribe(queryParams => {
-		// 	console.log(queryParams)
-		// 	let qParams = queryParams;
-		// 	for (var i in qParams){
-		// 		this.assignatura += qParams[i];
-		// 	}
-		// });
-
-		// this.url = this.route.url.subscribe(url => {
-		// 	this.assignatura_url = url[1];
-		// })
-
+		// getting the prova id and requesting its data through service
 		this.routeSub = this.route.params.subscribe(params => {
-			console.log(params);
-			this.id = params['id'];
-				
-			this._http.get('assets/json/proves-detail.json').subscribe(data => {
-				data.json().filter(item => {
-					// console.log(item);
-					if (item.id == this.id) {
-						// console.log(item);
-						this.prova = item;
-					}
-				})
-			})
-		})
+			this.id = params['id']; // provaId
+			this.req = this._proves.get('*', this.id).subscribe(data => {
+				this.prova = data;
+			});
+		});
+
 	};
 
 	ngOnDestroy() {
+
 		this.routeSub.unsubscribe();
-		// this.queryParamsSub.unsubscribe();
+		this.req.unsubscribe();
+		
 	};
 
 }
