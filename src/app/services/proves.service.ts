@@ -11,9 +11,13 @@ export class ProvesService {
 
 	constructor(private _http: Http) { }
 
-	// get method: gets specific assignatura with passed id
+	// get method
 	// ------------------------------------------------------
 	get(assignaturaId, provaId){
+
+		// assignaturaId or '*': specific assignatura or all assignatures
+		// provaId or '*': specific prova or all proves
+		
 		/* We get the data from static JSONs within /assets/json.
 		   We will eventually direct the endpoint to our API. */
 		let fileName = 'proves-detail.json';
