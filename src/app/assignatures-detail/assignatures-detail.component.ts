@@ -30,29 +30,19 @@ export class AssignaturesDetailComponent implements OnInit {
 		this.proves_assignatura = [];
 
 		this.routeSub = this.route.params.subscribe(params => {
-			// console.log(params);
 			this.id = params['id'];
 
-			this.req = this._assignatures.list().subscribe(data => {
-				data.filter(item => {
-					if (item.id == this.id) {
-						this.assignatura = item;
-					}
-
-				});
-
+			this.req = this._assignatures.get(this.id).subscribe(data => {
+						this.assignatura = data;
 			});
 
 			this._http.get('assets/json/proves-detail.json').subscribe(data => {
 				data.json().filter(item => {
-					// console.log(item);
 					if (item.assignatura.id == this.id) {
 						this.proves_assignatura.push(item);
 					}
 
 				});
-
-
 			});
 
 		});

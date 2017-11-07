@@ -22,6 +22,29 @@ export class AssignaturesService {
 						.catch(this.handleError);
 	};
 
+	// get method: gets specific assignatura with passed id
+	// ------------------------------------------------------
+	get(id){
+		/* We get the data from static JSONs within /assets/json.
+		   We will eventually direct the endpoint to our API. */
+		let fileName = 'assignatures-detail.json';
+		return this._http.get(endpoint+fileName)
+						.map(response=>{
+							let data = response.json().filter(item => {
+										if (item.id == id) {
+											return item;
+										}
+							})
+							if (data.length == 1) {
+								return data[0];
+							}
+							return {};
+						})
+						.catch(this.handleError);
+	};
+
+	
+
 	// Handling errors
 	// ------------------------------------------------------
 	private handleError(error:any, caught:any): any{
