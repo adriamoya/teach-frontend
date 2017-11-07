@@ -9,6 +9,7 @@ import { AssignaturesListComponent } from './assignatures-list/assignatures-list
 import { AssignaturesDetailComponent } from './assignatures-detail/assignatures-detail.component';
 import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-update.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
+import { ProvesCreateComponent } from './proves-create/proves-create.component';
 import { ProvesDetailComponent } from './proves-detail/proves-detail.component';
 
 
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'assignatures/:id/edit',
     component: AssignaturesUpdateComponent
+  },
+  {
+    path: 'proves/add',
+    component: ProvesCreateComponent
   },
   {
     path: 'assignatures/:id/:id',

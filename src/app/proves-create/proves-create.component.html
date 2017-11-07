@@ -4,7 +4,6 @@
 	<nav aria-label="breadcrumb" role="navigation">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a routerLink="/" routerLinkActive="active">Home</a></li>
-			<li class="breadcrumb-item" ><a routerLink="/assignatures/" routerLinkActive="active">Assignatures</a></li>
 		</ol>
 	</nav>
 
@@ -20,34 +19,45 @@
 				routerLinkActive="active">
 				Afegir
 				</button>
-
+					
 				<!-- Nova assignatura -->
 				<div class="mt-3">
-					<h2>Nova assignatura</h2>
+					<h2>Nova prova</h2>
 					<hr>
 				</div>
 
 				<dl class="form-group">
 					<dt>
-						<label class="form-label" for="nom-assignatura">Nom assignatura</label>
+						<label class="form-label" for="nom-prova">Nom prova</label>
 					</dt>
 					<dd>
-						<input type="text" class="form-control" id="nom-assignatura">
+						<input type="text" class="form-control" id="nom-prova">
 					</dd>
 				</dl>
 				<dl class="form-group">
 					<dt>
-						<label class="form-label" for="curs-assignatura">Curs</label>
+						<label class="form-label" for="curs-prova">Curs</label>
 					</dt>
 					<dd>
-						<select class="form-control" id="curs-assignatura">
+						<select class="form-control" id="curs-prova">
 							<option>2017/2018</option>
 						</select>
 					</dd>
 				</dl>
 				<dl class="form-group">
 					<dt>
-						<label class="form-label" for="bio-assignatura">Bio</label>
+						<label class="form-label" for="curs-prova">Assignatura</label>
+					</dt>
+					<dd>
+						<select class="form-control" id="curs-prova">
+							<option *ngFor="let assignatura of assignatures">{{ assignatura.nom }}</option>
+						</select>
+					</dd>
+				</dl>
+
+				<dl class="form-group">
+					<dt>
+						<label class="form-label" for="bio-assignatura">Contingut</label>
 					</dt>
 					<dd>
 						<textarea class="form-control" id="bio-assignatura" rows="3"></textarea>
