@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent }   from './home/home.component';
 import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
 import { AlumnesDetailComponent } from './alumnes-detail/alumnes-detail.component';
+import { AssignaturesCreateComponent } from './assignatures-create/assignatures-create.component';
 import { AssignaturesListComponent } from './assignatures-list/assignatures-list.component';
 import { AssignaturesDetailComponent } from './assignatures-detail/assignatures-detail.component';
 import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-update.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'alumnes/:id',
     component: AlumnesDetailComponent
+  },
+  {
+    path: 'assignatures/add',
+    component: AssignaturesCreateComponent
   },
   {
     path: 'assignatures/:id',

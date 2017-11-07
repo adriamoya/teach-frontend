@@ -65,7 +65,7 @@
 						<accordion>
 							<accordion-group *ngFor="let assignatura of alumne.assignatures">
 								<div accordion-heading>
-									<span>{{ assignatura.nom }}</span>
+									<span><a routerLink="/assignatures/{{ assignatura.id }}" routerLinkActive="active">{{ assignatura.nom }}</a></span>
 									<span class="badge badge-secondary float-right pull-right" style="margin-top: 3px; margin-bottom: 3px;">{{ assignatura.proves.count }}</span>
 								</div>
 								<div *ngIf="ready == true" class="table-responsive">
@@ -82,7 +82,7 @@
 
 											<!-- Proves rows -->
 											<tr *ngFor="let prova of assignatura.proves">
-												<td><a routerLink="/assignatures/{{ id }}/{{ prova.id }}" routerLinkActive="active">{{ prova.nom }}</a></td>
+												<td><a routerLink="/assignatures/{{ assignatura.id }}/{{ prova.id }}" routerLinkActive="active">{{ prova.nom }}</a></td>
 												<td>{{ prova.data | date }}</td>
 												<td>{{ prova.pes_nota | percent: '1.0-1' }}</td>
 												<td *ngIf="prova.puntuacio">{{ prova.puntuacio | number: '1.1-2' }} / {{ prova.puntuacio_total }}</td>

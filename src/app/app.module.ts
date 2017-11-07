@@ -22,6 +22,7 @@ import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-
 import { AssignaturesUpdateGeneralComponent } from './assignatures-update/assignatures-update-general.component';
 import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
 import { AlumnesDetailComponent } from './alumnes-detail/alumnes-detail.component';
+import { AssignaturesCreateComponent } from './assignatures-create/assignatures-create.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AlumnesDetailComponent } from './alumnes-detail/alumnes-detail.componen
     AssignaturesUpdateGeneralComponent,
     AlumnesListComponent,
     AlumnesDetailComponent,
+    AssignaturesCreateComponent,
   ],
   imports: [
     AppRoutingModule,

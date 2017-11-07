@@ -12,66 +12,13 @@ export class AssignaturesDetailComponent implements OnInit {
 
 	// CREATE A NEW COMPONENT FOR THE LINECHART
 
+	// GET PROVES PROMIG BY JOINING alumnes-detail with proves-detail.
+
 	private routeSub: any;
 	// private req: any;
 	assignatura: any;
 	proves_assignatura: any;
 	id: string;
-	alumnes: any = [];
-	public ready_chart: boolean = false;
-
-	// lineChart
-	public lineChartData: Array<any> = [];
-	public lineChartLabels: Array<any> = [];
-	public lineChartOptions: any = {
-		responsive: true,
-		legend: { display: true, labels: { fontSize: 14 } },
-		scales: {
-			xAxes: [{
-				ticks: {
-					fontSize: 14
-				}
-			}],
-			yAxes: [{
-				ticks: {
-					fontSize: 14,
-					min: 0,
-					max: 10,
-				}
-			}]
-		}
-	};
-	public lineChartColors: Array<any> = [
-		{ // grey
-			fill: false,
-			backgroundColor: 'rgba(148,159,177,0.2)',
-			borderColor: 'rgba(148,159,177,1)',
-			pointBackgroundColor: 'rgba(148,159,177,1)',
-			pointBorderColor: '#fff',
-			pointHoverBackgroundColor: '#fff',
-			pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-		},
-		{ // dark grey
-			fill: false,
-			backgroundColor: 'rgba(77,83,96,0.2)',
-			borderColor: 'rgba(77,83,96,1)',
-			pointBackgroundColor: 'rgba(77,83,96,1)',
-			pointBorderColor: '#fff',
-			pointHoverBackgroundColor: '#fff',
-			pointHoverBorderColor: 'rgba(77,83,96,1)'
-		}
-	];
-	public lineChartLegend: boolean = true;
-	public lineChartType: string = 'bar';
-
-	// events
-	public chartClicked(e: any): void {
-		console.log(e);
-	}
-
-	public chartHovered(e: any): void {
-		console.log(e);
-	}
 
 	constructor(private route: ActivatedRoute, private _http: Http) { }
 
@@ -93,9 +40,6 @@ export class AssignaturesDetailComponent implements OnInit {
 
 				});
 
-				for (var i in this.assignatura.alumnes) {
-					this.alumnes.push(this.assignatura.alumnes[i]);
-				}
 			});
 
 			this._http.get('assets/json/proves-detail.json').subscribe(data => {
@@ -107,29 +51,6 @@ export class AssignaturesDetailComponent implements OnInit {
 
 				});
 
-				var alumnes_proves = [];
-				var proves_nom = [];
-
-				for (var k in this.alumnes) {
-					for (var i in this.proves_assignatura) {
-						for (var j in this.proves_assignatura[i].puntuacio_alumnes) {
-							if (this.alumnes[k].id == this.proves_assignatura[i].puntuacio_alumnes[j].id) {
-								alumnes_proves.push(this.proves_assignatura[i].puntuacio_alumnes[j].puntuacio);
-								proves_nom.push(this.proves_assignatura[i].nom);
-							}
-						}
-					}
-
-					var alumneLineData = {data: alumnes_proves, label: this.alumnes[k].nom + " " + this.alumnes[k].primer_cognom + " " + this.alumnes[k].segon_cognom }
-					this.lineChartData.push(alumneLineData);
-					alumnes_proves = [];
-				}
-
-				for (var i in this.proves_assignatura) {
-					this.lineChartLabels.push(this.proves_assignatura[i].nom);
-				}
-
-				this.ready_chart = true;
 
 			});
 
