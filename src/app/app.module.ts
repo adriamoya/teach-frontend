@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
+
 
 // third-party imports
 import { AccordionModule } from 'ngx-bootstrap';
@@ -27,6 +28,9 @@ import { ProvesCreateComponent } from './proves-create/proves-create.component';
 import { ProvesUpdateComponent } from './proves-update/proves-update.component';
 import { ProvesUpdateDetailComponent } from './proves-update/proves-update-detail.component';
 
+import { Ng2TagsInputItem } from "./tags-input/ng2-tagsinput-item";
+import { Ng2TagsInput } from "./tags-input/ng2-tagsinput";
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,9 @@ import { ProvesUpdateDetailComponent } from './proves-update/proves-update-detai
     ProvesCreateComponent,
     ProvesUpdateComponent,
     ProvesUpdateDetailComponent,
+
+    Ng2TagsInputItem,
+    Ng2TagsInput,
   ],
   imports: [
     AppRoutingModule,
@@ -52,12 +59,17 @@ import { ProvesUpdateDetailComponent } from './proves-update/proves-update-detai
     ChartsModule,
     FormsModule,
     HttpModule,
-    
+    ReactiveFormsModule,
+
 	  // ngx-bootstrap
     AccordionModule.forRoot(),
     NgbModule.forRoot(),
-	  BsDropdownModule.forRoot(),
+	BsDropdownModule.forRoot(),
     CollapseModule,
+  ],
+  exports: [
+    Ng2TagsInputItem,
+    Ng2TagsInput
   ],
   providers: [],
   bootstrap: [AppComponent]

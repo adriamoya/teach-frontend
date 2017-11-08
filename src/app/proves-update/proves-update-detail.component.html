@@ -33,7 +33,10 @@
 			<label class="form-label" for="contingut-prova">Continguts avaluats</label>
 		</dt>
 		<dd>
-			<input class="form-control" id="contingut-prova" value="{{ prova.continguts_avaluats }}">
+			<tag-input
+			placeholder="Afegir continguts ..."
+			[model]="prova.continguts_avaluats"
+			></tag-input>
 		</dd>
 	</dl>
 

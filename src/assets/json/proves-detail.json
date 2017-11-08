@@ -11,7 +11,8 @@
 		"puntuacio_promig": 7.82,
 		"pes_nota": 0.25,
 		"continguts_avaluats": [
-			"Ecuacions"
+			"Ecuacions",
+			"Funcions"
 		],
 		"puntuacio_alumnes": [
 			{
