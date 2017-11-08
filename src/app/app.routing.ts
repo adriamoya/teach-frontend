@@ -11,7 +11,7 @@ import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { ProvesCreateComponent } from './proves-create/proves-create.component';
 import { ProvesDetailComponent } from './proves-detail/proves-detail.component';
-
+import { ProvesUpdateComponent } from './proves-update/proves-update.component';
 
 const routes: Routes = [
   {
@@ -54,6 +54,10 @@ const routes: Routes = [
   {
     path: 'assignatures/:id/:id',
     component: ProvesDetailComponent
+  },
+  {
+    path: 'assignatures/:id/:id/edit',
+    component: ProvesUpdateComponent
   },
   {
     path: 'perfil/:id',

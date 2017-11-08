@@ -1,18 +1,19 @@
 <div class="container">
 
-	<div *ngIf="!assignatura">
+	<div *ngIf="!prova">
 		<p>Loading ...</p>
 	</div>
 
-	<div *ngIf="assignatura">
+	<div *ngIf="prova">
 
 		<br>
 
 		<nav aria-label="breadcrumb" role="navigation">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a routerLink="/" routerLinkActive="active">Home</a></li>
-				<li class="breadcrumb-item" ><a routerLink="/assignatures/" routerLinkActive="active">Assignatures</a></li>
-				<li class="breadcrumb-item active" aria-current="page">{{ assignatura.nom }}</li>
+				<li class="breadcrumb-item"><a routerLink="/assignatures/" routerLinkActive="active">Assignatures</a></li>
+				<li class="breadcrumb-item"><a routerLink="/assignatures/{{prova.assignatura.id}}" routerLinkActive="active">{{ prova.assignatura.nom }}</a></li>
+				<li class="breadcrumb-item active"><a routerLink="/assignatures/{{prova.assignatura.id}}/{{prova.id}}" routerLinkActive="active">{{ prova.nom }}</a></li>
 			</ol>
 		</nav>
 
@@ -28,16 +29,9 @@
 
 						<a 
 						class="list-group-item list-group-item-action"
-						(click)="menuSelection = 'proves'">
-							Proves
+						(click)="menuSelection = 'puntuacions'">
+							Puntuacions
 						</a>
-
-						<a 
-						class="list-group-item list-group-item-action"
-						(click)="menuSelection = 'alumnes'">
-							Alumnes
-						</a>
-
 					</div>
 				</div>
 			</div>
@@ -53,11 +47,11 @@
 					</button>
 
 					<!-- FORM -->
-					<app-assignatures-update-detail 
-					[assignatura] ='assignatura'
+					<app-proves-update-detail 
+					[prova] ='prova'
 					[menuSelection] ='menuSelection'>Loading ...
-					</app-assignatures-update-detail>
-
+					</app-proves-update-detail>
+					
 				</div>
 			</div>
 		</div>

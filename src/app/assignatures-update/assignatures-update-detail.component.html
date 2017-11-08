@@ -6,23 +6,25 @@
 		<hr>
 	</div>
 
-	<dl class="form-group">
-		<dt>
-			<label class="form-label" for="nom-assignatura">Nom assignatura</label>
-		</dt>
-		<dd>
-			<input type="text" class="form-control" id="nom-assignatura" value="{{ assignatura.nom }}">
-		</dd>
-	</dl>
-	<dl class="form-group">
-		<dt>
-			<label class="form-label" for="curs-assignatura">Curs</label>
-		</dt>
-		<dd>
-			<select class="form-control" id="curs-assignatura">
-				<option>2017/2018</option>
-			</select>
-		</dd>
+	<dl class="form-group row">
+		<div class="col">
+			<dt>
+				<label class="form-label" for="nom-assignatura">Nom assignatura</label>
+			</dt>
+			<dd>
+				<input type="text" class="form-control" id="nom-assignatura" value="{{ assignatura.nom }}">
+			</dd>
+		</div>
+		<div class="col">
+			<dt>
+				<label class="form-label" for="curs-assignatura">Curs</label>
+			</dt>
+			<dd>
+				<select class="form-control" id="curs-assignatura">
+					<option>2017/2018</option>
+				</select>
+			</dd>
+		</div>
 	</dl>
 	<dl class="form-group">
 		<dt>

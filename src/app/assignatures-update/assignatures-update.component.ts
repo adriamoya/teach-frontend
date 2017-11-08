@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Provider that allows us to work and get parameters from the route given
-import { Http } from '@angular/http';
 
 import { AssignaturesUpdateDetailComponent } from './assignatures-update-detail.component';
 
@@ -16,7 +15,7 @@ import { AssignaturesService } from '../services/assignatures.service';
 export class AssignaturesUpdateComponent implements OnInit {
 
 	private routeSub: any;
-	private req:
+	private req: any;
 	assignatura: any;
 	id: string;
 

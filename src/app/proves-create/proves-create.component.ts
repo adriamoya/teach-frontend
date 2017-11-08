@@ -15,6 +15,7 @@ export class ProvesCreateComponent implements OnInit {
 	assignaturaId: number;
 	assignaturaSelected: any;
 	alumnesSelected: [any];
+	puntuacioMax: number = 10;
 
 	constructor(private _assignatures: AssignaturesService) { }
 
