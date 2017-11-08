@@ -20,19 +20,22 @@
 	<section class="row text-center placeholder">
 		<div 
 		style="margin-bottom: 25px;" 
-		class="col-xs-6 col-sm-4 col-md-3 placeholder" 
+		class="col-xs-6 col-sm-3 col-md-3 col-lg-2 placeholder" 
 		*ngFor="let assignatura of assignaturesList">
-			<i 
+			<i
 			class="material-icons"
-			style="font-size: 160px; cursor: pointer;" 
-			[ngStyle]="{'color': assignatura.color}"
+			style="font-size: 120px; cursor: pointer; color: #e9ecef" 
 			routerLink="/assignatures/{{ assignatura.id }}" 
 			routerLinkActive="active">
-				layers
+				folder
 			</i>
-			<h5 style="margin-top: -10px;" >{{ assignatura.nom }}</h5>
-			<div class="text-muted">{{ assignatura.curs }}</div>
+			<br>
+			<a style="margin-top: -10px;" routerLink="/assignatures/{{ assignatura.id }}" routerLinkActive="active">{{ assignatura.nom }}</a>
+			<p class="text-muted"><small>{{ assignatura.curs }}</small></p>
 		</div>
 	</section>
 
 </div>
+
+
+<!-- [ngStyle]="{'color': assignatura.color}" -->

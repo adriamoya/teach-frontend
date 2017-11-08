@@ -55,7 +55,8 @@
 				<a class="nav-link" id="professors-tab" data-toggle="tab" href="#professors" role="tab" aria-controls="professors" aria-selected="false">Professors</a>
 			</li>
 		</ul>
-		<hr>
+
+		<!-- <hr> -->
 
 		<div style="margin-top: 20px;" class="tab-content" id="myTabContent">
 
@@ -125,21 +126,21 @@
 				</div>
 			</div> <!-- Alumnes - list -->
 
-			<!-- Avaluació -->
+			<!-- Professors -->
 
 			<div class="tab-pane fade" id="professors" role="tabpanel" aria-labelledby="professors-tab">
 
 				<section class="row text-center placeholder">
-					<div *ngFor="let professor of assignatura.professor_assignatures" class="col-lg-4">
+					<div *ngFor="let professor of assignatura.professor_assignatures" class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
 
 						<i 
 						class="material-icons"
-						style="font-size: 160px; cursor: pointer; color: #e9ecef;"
+						style="font-size: 120px; cursor: pointer; color: #e9ecef;"
 						routerLink="/assignatures/{{ assignatura.id }}" 
 						routerLinkActive="active">
 							lens
 						</i>
-						<h2>{{ professor.nom}} {{ professor.primer_cognom }}</h2>
+						<a routerLink="/assignatures/{{ assignatura.id }}" routerLinkActive="active">{{ professor.nom}} {{ professor.primer_cognom }}</a>
 
 					</div>
 				</section>

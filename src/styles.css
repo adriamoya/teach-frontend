@@ -16,6 +16,10 @@ body {
 	line-height: 20px;
 }
 
+h4 {
+	margin-bottom:15px;
+}
+
 .bg-faded {
     background-color: #f7f7f7;
 }
