@@ -33,18 +33,16 @@
 						</a>
 
 						<a 
-						href="#" 
 						class="list-group-item list-group-item-action"
 						(click)="menuSelection = 'alumnes'">
 							Alumnes
 						</a>
 
-						<a 
-						href="#" 
+						<!-- <a 
 						class="list-group-item list-group-item-action"
 						(click)="menuSelection = 'avaluacio'">
 							Avaluació
-						</a>
+						</a> -->
 
 					</div>
 				</div>
@@ -63,10 +61,10 @@
 					<!-- FORM -->
 
 					<!-- 1. General -->
-					<app-assignatures-update-general 
+					<app-assignatures-update-detail 
 					[assignatura] ='assignatura'
 					[menuSelection] ='menuSelection'>Loading ...
-					</app-assignatures-update-general>
+					</app-assignatures-update-detail>
 
 
 					<!-- 				

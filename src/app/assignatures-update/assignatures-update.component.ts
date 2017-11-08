@@ -2,49 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'; // Provider that allows us to work and get parameters from the route given
 import { Http } from '@angular/http';
 
-import { AssignaturesUpdateGeneralComponent } from './assignatures-update-general.component'
+import { AssignaturesUpdateDetailComponent } from './assignatures-update-detail.component'
+
+import { AssignaturesService } from '../services/assignatures.service';
 
 @Component({
 	selector: 'app-assignatures-update',
 	templateUrl: './assignatures-update.component.html',
 	styleUrls: ['./assignatures-update.component.css'],
+	providers: [AssignaturesService]
 })
 
 export class AssignaturesUpdateComponent implements OnInit {
 
 	private routeSub: any;
-	// private req: any;
+	private req:
 	assignatura: any;
 	id: string;
 
 	menuSelection: string = "general";
 
-	constructor(private route: ActivatedRoute, private _http: Http) { }
+	constructor(private route: ActivatedRoute, private _assignatures: AssignaturesService) { }
 
 	ngOnInit() {
 
 		this.routeSub = this.route.params.subscribe(params => {
-			console.log(params);
 			this.id = params['id'];
-
-			this._http.get('assets/json/assignatures-detail.json').subscribe(data => {
-				data.json().filter(item => {
-					// console.log(item);
-					if (item.id == this.id) {
-						// console.log(item);
-						this.assignatura = item;
-					}
-				})
-			})
-
-		})
+			this.req = this._assignatures.get(this.id).subscribe(item => {
+				this.assignatura = item;
+			});
+		});
 	};
 
 
 	// important to unsubscribe (destroy) after using subscribe ...
 	ngOnDestroy() {
 		this.routeSub.unsubscribe();
-		// this.req.unsubscribe();
+		this.req.unsubscribe();
 	};
 }
 

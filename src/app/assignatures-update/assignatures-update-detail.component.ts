@@ -4,12 +4,13 @@ import { Http } from '@angular/http';
 
 import { AssignaturesUpdateComponent } from './assignatures-update.component';
 
+
 @Component({
-	selector: 'app-assignatures-update-general',
-	templateUrl: './assignatures-update-general.component.html'
+	selector: 'app-assignatures-update-detail',
+	templateUrl: './assignatures-update-detail.component.html'
 })
 
-export class AssignaturesUpdateGeneralComponent implements OnInit {
+export class AssignaturesUpdateDetailComponent implements OnInit {
 
 	// passed from parent AssignaturesUpdateComponent
 	@Input() assignatura: any;
@@ -19,10 +20,6 @@ export class AssignaturesUpdateGeneralComponent implements OnInit {
 
 	ngOnInit() { 
 
-		// console.log("HEEEEEY"); 
-		// console.log(this.assignatura);
-		// console.log(this.menuSelection)
-		
 	};
 }
 

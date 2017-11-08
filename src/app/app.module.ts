@@ -19,7 +19,7 @@ import { AssignaturesDetailComponent } from './assignatures-detail/assignatures-
 import { ProvesDetailComponent } from './proves-detail/proves-detail.component';
 import { ProfileDetailComponent } from './profile-detail/profile-detail.component';
 import { AssignaturesUpdateComponent } from './assignatures-update/assignatures-update.component';
-import { AssignaturesUpdateGeneralComponent } from './assignatures-update/assignatures-update-general.component';
+import { AssignaturesUpdateDetailComponent } from './assignatures-update/assignatures-update-detail.component';
 import { AlumnesListComponent } from './alumnes-list/alumnes-list.component';
 import { AlumnesDetailComponent } from './alumnes-detail/alumnes-detail.component';
 import { AssignaturesCreateComponent } from './assignatures-create/assignatures-create.component';
@@ -35,7 +35,7 @@ import { ProvesCreateComponent } from './proves-create/proves-create.component';
     ProvesDetailComponent,
     ProfileDetailComponent,
     AssignaturesUpdateComponent,
-    AssignaturesUpdateGeneralComponent,
+    AssignaturesUpdateDetailComponent,
     AlumnesListComponent,
     AlumnesDetailComponent,
     AssignaturesCreateComponent,

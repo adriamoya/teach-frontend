@@ -12,7 +12,7 @@ export class ProvesCreateComponent implements OnInit {
 	req: any;
 	req_alumnes: any;
 	assignatures: [any];
-	assignaturaId: string;
+	assignaturaId: number;
 	assignaturaSelected: any;
 	alumnesSelected: [any];
 
