@@ -13,7 +13,7 @@ import { ProvesService } from '../services/proves.service';
 export class ProvesUpdateComponent implements OnInit {
 
 	private routeSub: any;
-	private req:
+	private req: any;
 	prova: any;
 	id: string;
 
